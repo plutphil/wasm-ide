@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WASM C/C++ IDE</title>
+</head>
+<body>
+  <header>
+    <strong class="brand">WASM&nbsp;IDE</strong>
+    <label>Language
+      <select id="lang"><option value="c">C</option><option value="cpp">C++</option></select>
+    </label>
+    <label>Standard <select id="std"></select></label>
+    <label>Optimize
+      <select id="opt">
+        <option value="O0">-O0</option><option value="O1">-O1</option>
+        <option value="O2">-O2</option><option value="Os">-Os</option>
+      </select>
+    </label>
+    <span class="spacer"></span>
+    <button id="run" class="primary" title="Ctrl+Enter">▶ Run</button>
+    <button id="stop" disabled>■ Stop</button>
+  </header>
+  <main>
+    <section id="editor-pane"><div id="editor"></div></section>
+    <section id="side">
+      <div class="row">
+        <label for="args">Arguments</label>
+        <input id="args" type="text" spellcheck="false" placeholder='e.g. foo "bar baz" 42' />
+      </div>
+      <div class="title">Terminal <small>(stdin is interactive: type here while the program runs, Ctrl+D = EOF)</small></div>
+      <div id="term"></div>
+      <div id="result">Ready.</div>
+    </section>
+  </main>
+  <footer id="status">Idle</footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
